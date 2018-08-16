@@ -30,6 +30,18 @@
 */
 
 //Code Here
+class Employee {
+    constructor(first_name, last_name, email, age){
+      this.first_name = first_name;
+      this.last_name = last_name;
+      this.email = email;
+      this.age = age;
+    }
+    makeWidget(first_name,last_name){
+      return this.first_name + " " + this.last_name + " Widget"
+    }
+
+}
 
 
 
@@ -50,8 +62,26 @@
 */
 
 //Code Here
+class Manager {
+  constructor(first_name, last_name, email, age, reports){
+    this.first_name = first_name;
+    this.last_name = last_name;
+    this.email = email;
+    this.age = age;
+    this.reports = reports = [];
+  }
+  makeWidget(first_name,last_name){
+    return this.first_name + " " + this.last_name + " Widget"
+  }
+  hire(employee){
+    this.reports.push(employee);
+  }
+  fire(index){
+    this.reports.splice(index,1);
+  }
 
-
+  
+}
 
 ////////// PROBLEM 3 //////////
 
@@ -76,8 +106,47 @@
 */
 
 //Code Here
+class ProgressiveManager {
+  constructor(first_name, last_name, email, age, reports, title, bonus){
+    this.first_name = first_name;
+    this.last_name = last_name;
+    this.email = email;
+    this.age = age;
+    this.reports = [];
+    this.title = "Not a manager";
+    this.bonus = 0;
+  }
+  makeWidget(first_name,last_name){
+    return this.first_name + " " + this.last_name + " Widget"
+  }
+  hire(employee){
+    this.reports.push(employee);
+    this.updateTitle();
+  }
+  fire(index){
+    this.reports.splice(index,1);
+    this.bonus += 100;
+  }
+  updateTitle(){
+    let titleRating = this.reports.length
+    if(titleRating === 0){
+      this.title = "Not a manager"
+    } else if (titleRating > 0 && titleRating <= 3) {
+      this.title = "Barely Manager"
+    } else if (titleRating < 11) {
+      this.title = "Mostly Manager"
+    } else if (titleRating < 51){
+      this.title = "Manager"
+    } else if (titleRating < 101){
+      this.title = "Manager Plus"
+    } else if (titleRating >= 101){
+      this.title = "Bestest Manager"
+    }
+  }  
+}
 
-
+console.log(ProgressiveManager);
+  
 
 ////////// PROBLEM 4 - Black Diamond //////////
 
