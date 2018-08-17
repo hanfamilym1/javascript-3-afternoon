@@ -187,18 +187,13 @@ var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
 */
 
 //Code Here
-function looper(arr){
-  for(let i =0; i<arr.length; i++){
-    for(let j = 0; j<arr[i].length; j++){
-      if (arr[i][j] % 2 === 0){
-        arr[i][j] = "even"
-      } else {
-        arr[i][j] = 'odd'
-      }
+let looper = () => {
+  for(let i =0; i<numsArr.length; i++){
+    for(let j = 0; j<numsArr[i].length; j++){
+      if (numsArr[i][j] % 2 === 0) numsArr[i][j] = 'even'
+       else { numsArr[i][j] = 'odd'}
     } 
-  } return arr
+  } return numsArr
 }
-console.log(looper(numsArr))
-numsArr;
 
 

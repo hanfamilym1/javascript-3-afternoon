@@ -127,7 +127,10 @@ function largeNumbers ( {first, second, third} ){
 //Code Here
 
 function numberGroups ({a,b,c}){
- 
+  let longArray = a;
+  if(longArray.length < b.length) longArray = b;
+  if(longArray.length < c.length) longArray = c;
+  return longArray
 }
 
 

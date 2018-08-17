@@ -63,12 +63,12 @@ class Employee {
 
 //Code Here
 class Manager {
-  constructor(first_name, last_name, email, age, reports){
+  constructor(first_name, last_name, email, age){
     this.first_name = first_name;
     this.last_name = last_name;
     this.email = email;
     this.age = age;
-    this.reports = reports = [];
+    this.reports = [];
   }
   makeWidget(first_name,last_name){
     return this.first_name + " " + this.last_name + " Widget"
@@ -78,10 +78,9 @@ class Manager {
   }
   fire(index){
     this.reports.splice(index,1);
-  }
-
-  
+  }  
 }
+
 
 ////////// PROBLEM 3 //////////
 
@@ -126,6 +125,7 @@ class ProgressiveManager {
   fire(index){
     this.reports.splice(index,1);
     this.bonus += 100;
+    this.updateTitle();
   }
   updateTitle(){
     let titleRating = this.reports.length
@@ -172,5 +172,26 @@ console.log(ProgressiveManager);
 */
 
 //Code Here
+class Machine {
+  constructor(){
+    this.widgets_made_count = 0;
+    this.wear_and_tear_count = 0;
+    this.needs_reboot = false;
+  }
+  makeWidgets(num){
+    this.widgets_made_count += num;
+    this.wear_and_tear_count += Math.floor(num/50)
+  }
+  fixMachine(){
+    this.needs_reboot = true
+  }
+  reboot(){
+    return function(){
+      this.needs_reboot = false
+      this.wear_and_tear_count -= 10
+    }.bind(this)
+  }
+}
+
 
 
